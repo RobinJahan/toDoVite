@@ -2,7 +2,7 @@
     <div class="task">
         <div class="label" :class="{finished: isFinished}">
             <input type="checkbox" class="largeCheckbox" v-model="isFinished" v-on:click="this.$parent.changeStateTask(index)">
-            <h2>{{task}}</h2>
+            <p>{{task}}</p>
         </div>
         <div class="removeBtn" v-on:click="removeTask(index)">
             <span>X</span>
@@ -50,6 +50,9 @@ export default {
 .label{
     display: flex;
     width: 90%;
+}
+.label > p {
+    font-size: 22px;
 }
 .finished{
     color: rgb(110, 110, 110);
