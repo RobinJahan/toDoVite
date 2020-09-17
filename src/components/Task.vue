@@ -1,7 +1,9 @@
 <template>
     <div class="task">
-        <div class="label" :class="{finished: isFinished}">
+        <div class="checkboxdiv">
             <input type="checkbox" class="largeCheckbox" v-model="isFinished" v-on:click="this.$parent.changeStateTask(index)">
+        </div> 
+        <div class="label" :class="{finished: isFinished}">    
             <p>{{task}}</p>
         </div>
         <div class="removeBtn" v-on:click="removeTask(index)">
@@ -47,9 +49,13 @@ export default {
     box-shadow: 5px 5px 10px 1px rgb(224, 224, 224, 0.5);
     border-radius: 5px;
 }
+.checkboxDiv{
+    width: 10%;
+}
 .label{
-    display: flex;
-    width: 90%;
+    width: 80%;
+    display: block;
+    overflow: hidden;
 }
 .label > p {
     font-size: 22px;
@@ -80,3 +86,4 @@ input.largeCheckbox{
     top: 30%;
 }
 </style>
+
