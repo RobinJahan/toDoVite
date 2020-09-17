@@ -50,10 +50,10 @@ export default {
     border-radius: 5px;
 }
 .checkboxDiv{
-    width: 10%;
+    width: 70px;
 }
 .label{
-    width: 80%;
+    width: 100%;
     overflow: hidden;
     text-align: justify;
 }
@@ -70,21 +70,19 @@ input.largeCheckbox{
     margin: 20px;
 }
 .removeBtn{
-    display: none;
-    width: 10%;
+    width: 70px;
     position: relative;
     font-size: 20px;
     font-weight: 800;
     color: rgb(205, 92, 92);
 
 }
-.task:hover > .removeBtn{
-    display: block;
-}
 .removeBtn>span{
+    display: none;
     position: absolute;
     top: 30%;
 }
+.task:hover > .removeBtn > span{
+    display: block;
+}
 </style>
-
-
