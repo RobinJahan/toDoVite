@@ -1,7 +1,7 @@
 <template>
     <div class="task">
         <div class="label" :class="{finished: isFinished}">
-            <input type="checkbox" class="largeCheckbox" v-model="isFinished">
+            <input type="checkbox" class="largeCheckbox" v-model="isFinished" v-on:click="this.$parent.changeStateTask(index)">
             <h2>{{task}}</h2>
         </div>
         <div class="removeBtn" v-on:click="removeTask(index)">
