@@ -31,20 +31,52 @@ export default {
       numberOfTaskAdded: 0
     }
   },
+  mounted(){
+    if(localStorage.getItem('toDo')) {
+      try {
+        this.toDo = JSON.parse(localStorage.getItem('toDo'))
+      } catch(e) {
+        localStorage.removeItem('toDo')
+      }
+    }
+    if(localStorage.numberOfTaskAdded) {
+      this.numberOfTaskAdded = localStorage.numberOfTaskAdded;
+    }
+  },
+  watch:{
+    toDo(newToDo) {
+      localStorage.toDo = newToDo;
+    },
+    numberOfTaskAdded(newAdd){
+      localStorage.numberOfTaskAdded = newAdd;
+    }
+  },
   methods: {
     addTask(){
       if (this.newTask.length > 0){
         this.toDo.push({
-        index: this.numberOfTaskAdded,
+        index: parseInt(this.numberOfTaskAdded),
         task: this.newTask,
         finished: false
         })
         this.numberOfTaskAdded++
+        this.saveTasks()
       }
       this.newTask = ""
     },
     removeTask(index){
+      console.log(index)
       this.toDo.splice(this.toDo.findIndex(task => task.index === index),1)
+      this.saveTasks()
+    },
+    changeStateTask(index){
+      console.log(index)
+      this.toDo[this.toDo.findIndex(task => task.index === index)].finished = !this.toDo[this.toDo.findIndex(task => task.index === index)].finished 
+      this.saveTasks()
+    },
+    saveTasks(){
+      const parsed = JSON.stringify(this.toDo)
+      localStorage.setItem('toDo', parsed)
     }
   }
 }
