@@ -43,6 +43,9 @@ export default {
 <style scoped>
 .task{
     display: flex;
+    margin-top: 8px;
+    box-shadow: 5px 5px 10px 1px rgb(224, 224, 224, 0.5);
+    border-radius: 5px;
 }
 .label{
     display: flex;
