@@ -54,8 +54,8 @@ export default {
 }
 .label{
     width: 80%;
-    display: block;
     overflow: hidden;
+    text-align: justify;
 }
 .label > p {
     font-size: 22px;
@@ -86,4 +86,5 @@ input.largeCheckbox{
     top: 30%;
 }
 </style>
+
 
